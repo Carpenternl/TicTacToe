@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TicTacToe"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"  VerticalContentAlignment="Top" BorderBrush="{x:Null}" Padding="5,5" Background="#00000000" HorizontalContentAlignment="Stretch">
-    
+             d:DesignHeight="39.018" d:DesignWidth="201.396"  VerticalContentAlignment="Top" BorderBrush="{x:Null}" Padding="5,5" Background="#00000000" HorizontalContentAlignment="Stretch">
+
     <UserControl.Resources>
         <Style TargetType="Button" x:Key="TransparentButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Margin" Value="3,3"/>
         </Style>
     </UserControl.Resources>
     <Grid VerticalAlignment="Top">
@@ -20,7 +21,11 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Button Style="{DynamicResource TransparentButton}"  x:Name="Icon" Grid.Column="0" Content="o"  FontFamily="Wingdings" />
-        <Button Style="{DynamicResource TransparentButton}" x:Name="PlayerName" x:FieldModifier="public" Grid.Column="1" Content="Player" HorizontalAlignment="Left"/>
+        <Button Style="{DynamicResource TransparentButton}" 
+                x:Name="PlayerName"  Content="Player" 
+                Grid.Column="1"
+                Click="PlayerName_Click" HorizontalContentAlignment="Left"/>
+        <TextBox x:Name="PlayerEdit" Margin="3,3" Grid.Column="1" Visibility="Hidden" LostFocus="PlayerEdit_LostFocus"/>
         <Button Style="{DynamicResource TransparentButton}" x:Name="DeleteButton" Background="Transparent" BorderBrush="Transparent" Content=" X " Grid.Column="2" Click="DeleteButton_Click"/>
     </Grid>
 </UserControl>

@@ -31,5 +31,23 @@ namespace TicTacToe
         {
             onDelete(this, e);
         }
+
+        private void PlayerName_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleVisibility(PlayerEdit, PlayerName);
+            PlayerEdit.Focus();
+        }
+
+        private void ToggleVisibility(UIElement a, UIElement b)
+        {
+            a.Visibility = Visibility.Visible;
+            b.Visibility = Visibility.Hidden;
+        }
+
+        private void PlayerEdit_LostFocus(object sender, RoutedEventArgs e)
+        {
+            PlayerName.Content = PlayerEdit.Text;
+            ToggleVisibility(PlayerName, PlayerEdit);
+        }
     }
 }
